@@ -1,4 +1,4 @@
 # NetBeans-Project
- Basic on NetBeans.
+ Simulating Operations of a Fitness Supplement Company.
  <br>
- Author-Promit Chowhan Polok.
+ 
