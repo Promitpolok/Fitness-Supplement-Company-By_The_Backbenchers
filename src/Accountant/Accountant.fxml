@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="496.0" prefWidth="490.0" style="-fx-background-color: #0598ff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Accountant.AccountantController">
+   <children>
+      <MenuBar layoutY="6.0" prefHeight="32.0" prefWidth="490.0" style="-fx-background-color: white;">
+        <menus>
+          <Menu mnemonicParsing="false" onAction="#menuAccountDeskMouseOnClick" text="Accountant Desk">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#menuItemBillMouseOnClick" text="Bill" />
+                  <MenuItem mnemonicParsing="false" onAction="#menuItemExpenseMouseOnClick" text="Expense" />
+                  <MenuItem mnemonicParsing="false" onAction="#menuItemTexMouseOnClick" text="Tax" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" onAction="#menuLogOutMouseOnClick" text="LogOut" />
+        </menus>
+      </MenuBar>
+      <Label layoutX="70.0" layoutY="257.0" prefHeight="59.0" prefWidth="336.0" text="WELCOME ACCOUNTANT !!">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
