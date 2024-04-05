@@ -25,7 +25,7 @@ public class CreateBillController implements Initializable {
     @FXML
     private ComboBox<?> productNameComboBox;
     @FXML
-    private ComboBox<?> quantityComboBox;
+    private ComboBox<Integer> quantityComboBox;
     @FXML
     private TextField priceTextFile;
     @FXML
