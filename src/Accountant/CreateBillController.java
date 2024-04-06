@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
@@ -31,11 +32,13 @@ public class CreateBillController implements Initializable {
     @FXML
     private TextField priceTextFile;
     @FXML
-    private DatePicker todayDateDatePicker;
-    @FXML
     private TextArea showAllTextArea;
     
     private ArrayList <createBill> cartList;
+    @FXML
+    private Button totalBillButton;
+    @FXML
+    private Button addProductButton;
 
     /**
      * Initializes the controller class.
@@ -92,7 +95,19 @@ public class CreateBillController implements Initializable {
     }
 
     @FXML
-    private void totalBillButtonMouseOnClick(ActionEvent event) {
+    private void totalBillButtonMouseOnClick(ActionEvent event) { 
+        showAllTextArea.clear();
+        for(createBill c: cartList){
+            showAllTextArea.appendText(c.toString() +"/n");       
+        }
+        showAllTextArea.appendText("/n" +"Total Bill "+ getTotalAmount()+"BDT" );
+        buyerIdComboBox.setDisable(true);
+        productNameComboBox.setDisable(true);
+        quantityComboBox.setDisable(true);
+        priceTextFile.setDisable(true);
+        totalBillButton.setDisable(true);
+        addProductButton.setDisable(true);
+               
     }
 
     @FXML
@@ -102,11 +117,20 @@ public class CreateBillController implements Initializable {
             priceTextFile.clear();
             priceTextFile.setText("Please Select Product"); 
         
-        if (checkDuplicate( productNameComboBox.getValue())){
+        if (checkDuplicate( productNameComboBox.getValue())){ 
+            createBill temp = null;
+            for (createBill c: cartList){
+                if(c.getProductName().equals(productNameComboBox.getValue())){
+                    temp=c; 
+                    break;                   
+                }           
+            }
+            temp.increaseQuantity(quantityComboBox.getValue());
         
         }
         else{ 
-            createBill tempOBJ = new createBill();
+            createBill tempOBJ = new createBill(productNameComboBox.getValue(), Float.parseFloat(priceTextFile.getText()), quantityComboBox.getValue());
+            cartList.add(tempOBJ);
         
         }
     }
@@ -197,5 +221,19 @@ public class CreateBillController implements Initializable {
         return false; 
     
     }
+
+    @FXML
+    private void buyerIdComboBoxOnSelect(ActionEvent event) {
+    }
+   
     
+    public float getTotalAmount(){
+        float totalAmount =0; 
+        for (createBill c: cartList){
+            totalAmount += c.getTotalAmount();
+        
+        }
+        return totalAmount; 
+    
+    }
 }

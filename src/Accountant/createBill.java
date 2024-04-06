@@ -19,6 +19,10 @@ public class createBill {
         this.unitPrice = unitPrice;
         this.quantity = quantity;
     }
+
+    createBill(String value, float parseFloat, Integer value0) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
 
@@ -58,6 +62,10 @@ public class createBill {
         float totalAmount = (unitPrice*quantity);
         return totalAmount;
     
+    } 
+    public void increaseQuantity(int tobeAdded){
+        this.quantity += tobeAdded;
+        
     }
 
     @Override
