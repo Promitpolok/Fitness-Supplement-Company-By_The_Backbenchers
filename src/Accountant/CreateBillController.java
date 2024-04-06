@@ -14,7 +14,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import mainpkg.createBill;
 
 /**
  * FXML Controller class
@@ -107,7 +106,7 @@ public class CreateBillController implements Initializable {
         
         }
         else{ 
-            createBill tempOBJ = new createBill(productNameComboBox.getValue(), Float.perseFloat(priceTextFile.getText(),quantityComboBox.getValue() ));
+            createBill tempOBJ = new createBill();
         
         }
     }
