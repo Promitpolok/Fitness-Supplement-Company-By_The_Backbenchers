@@ -231,7 +231,6 @@ myStage.show();
     
     private boolean checkDuplicate (String productName){ 
         if (cartList.isEmpty()){
-            return false;
         
         }
         for (createBill c : cartList){

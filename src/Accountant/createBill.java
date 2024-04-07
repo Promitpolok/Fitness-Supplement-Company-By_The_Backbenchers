@@ -64,7 +64,7 @@ public class createBill {
     
     } 
     public void increaseQuantity(int tobeAdded){
-        this.quantity += tobeAdded;
+        this.quantity += tobeAdded; 
         
     }
 
