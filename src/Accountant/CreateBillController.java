@@ -4,17 +4,23 @@
  */
 package Accountant;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -33,12 +39,12 @@ public class CreateBillController implements Initializable {
     private TextField priceTextFile;
     @FXML
     private TextArea showAllTextArea;
-    
-    private ArrayList <createBill> cartList;
-    @FXML
+        @FXML
     private Button totalBillButton;
     @FXML
     private Button addProductButton;
+    
+    private ArrayList <createBill> cartList;
 
     /**
      * Initializes the controller class.
@@ -91,7 +97,18 @@ public class CreateBillController implements Initializable {
     }    
 
     @FXML
-    private void backButtonMouseOnClick(ActionEvent event) {
+    private void backButtonMouseOnClick(ActionEvent event) throws IOException { 
+        Parent root = null;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Bill.fxml"));
+root = (Parent) myLoader.load();
+Scene myScene = new Scene(root);
+
+BillController x = myLoader.getController();
+//x.setValue(value);
+
+Stage myStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+myStage.setScene(myScene);
+myStage.show();      
     }
 
     @FXML
@@ -206,7 +223,12 @@ public class CreateBillController implements Initializable {
                 break;                 
         } 
         
-    } 
+    }
+    
+        @FXML
+    private void buyerIdComboBoxOnSelect(ActionEvent event) {
+    }
+    
     private boolean checkDuplicate (String productName){ 
         if (cartList.isEmpty()){
             return false;
@@ -220,10 +242,6 @@ public class CreateBillController implements Initializable {
         }
         return false; 
     
-    }
-
-    @FXML
-    private void buyerIdComboBoxOnSelect(ActionEvent event) {
     }
    
     
