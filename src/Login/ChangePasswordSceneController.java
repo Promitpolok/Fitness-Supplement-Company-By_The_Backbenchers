@@ -26,7 +26,7 @@ import javafx.stage.Stage;
 public class ChangePasswordSceneController implements Initializable {
 
     @FXML
-    private ComboBox<?> selectUserComboBox;
+    private ComboBox<String> selectUserComboBox;
     @FXML
     private TextField userIdTextField;
     @FXML

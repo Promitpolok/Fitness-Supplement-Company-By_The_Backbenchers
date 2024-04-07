@@ -5,23 +5,26 @@
 package Login;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
  * @author Promit
  */
 public class MainApplicationClass extends Application {
-    
-    
+   
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Login_Interface.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/Login/Login_Interface.fxml"));
         
         Scene scene = new Scene(root);
+                
         
         stage.setScene(scene);
         stage.show();
