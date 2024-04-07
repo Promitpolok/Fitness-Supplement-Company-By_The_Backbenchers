@@ -32,7 +32,18 @@ public class BillController implements Initializable {
     }    
 
     @FXML
-    private void backMouseOnClick(ActionEvent event) {
+    private void backMouseOnClick(ActionEvent event) throws IOException { 
+        Parent root = null;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Accountant.fxml"));
+root = (Parent) myLoader.load();
+Scene myScene = new Scene(root);
+
+AccountantController x = myLoader.getController();
+//x.setValue(value);
+
+Stage myStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+myStage.setScene(myScene);
+myStage.show(); 
     }
 
     @FXML

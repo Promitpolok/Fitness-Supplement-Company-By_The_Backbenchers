@@ -4,23 +4,16 @@
  */
 package Accountant;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -30,7 +23,7 @@ import javafx.stage.Stage;
 public class CreateBillController implements Initializable {
 
     @FXML
-    private ComboBox<String> buyerIdComboBox;
+    private ComboBox<Integer> buyerIdComboBox;
     @FXML
     private ComboBox<String> productNameComboBox;
     @FXML
@@ -39,19 +32,19 @@ public class CreateBillController implements Initializable {
     private TextField priceTextFile;
     @FXML
     private TextArea showAllTextArea;
-        @FXML
+    @FXML
     private Button totalBillButton;
     @FXML
-    private Button addProductButton;
+    private Button addProductButton; 
     
-    private ArrayList <createBill> cartList;
+    private ArrayList <CartItem> cartList;
 
     /**
      * Initializes the controller class.
      */
-    @Override 
+    @Override
     public void initialize(URL url, ResourceBundle rb) { 
-        cartList = new ArrayList<>(); 
+        cartList = new ArrayList<>();
         productNameComboBox.getItems().addAll(
                "Nitrotech",
                 "100% Gold Standard Whey Protein",
@@ -76,7 +69,7 @@ public class CreateBillController implements Initializable {
                 "Applied Nutrition",
                 "Plantinum Creatine"
                 
-                );
+                ); 
         quantityComboBox.getItems().addAll(
                 1,
                 2,
@@ -89,67 +82,15 @@ public class CreateBillController implements Initializable {
                 9,
                 10
                 
-                );
-        
-        
-
-        // TODO
+                );        
     }    
 
     @FXML
-    private void backButtonMouseOnClick(ActionEvent event) throws IOException { 
-        Parent root = null;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Bill.fxml"));
-root = (Parent) myLoader.load();
-Scene myScene = new Scene(root);
-
-BillController x = myLoader.getController();
-//x.setValue(value);
-
-Stage myStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-myStage.setScene(myScene);
-myStage.show();      
+    private void backButtonMouseOnClick(ActionEvent event) {
     }
 
     @FXML
-    private void totalBillButtonMouseOnClick(ActionEvent event) { 
-        showAllTextArea.clear();
-        for(createBill c: cartList){
-            showAllTextArea.appendText(c.toString() +"/n");       
-        }
-        showAllTextArea.appendText("/n" +"Total Bill "+ getTotalAmount()+"BDT" );
-        buyerIdComboBox.setDisable(true);
-        productNameComboBox.setDisable(true);
-        quantityComboBox.setDisable(true);
-        priceTextFile.setDisable(true);
-        totalBillButton.setDisable(true);
-        addProductButton.setDisable(true);
-               
-    }
-
-    @FXML
-    private void addButtonMouseOnClick(ActionEvent event) { 
-        priceTextFile.clear();
-        if (productNameComboBox.getValue()==null || quantityComboBox.getValue()==null )
-            priceTextFile.clear();
-            priceTextFile.setText("Please Select Product"); 
-        
-        if (checkDuplicate( productNameComboBox.getValue())){ 
-            createBill temp = null;
-            for (createBill c: cartList){
-                if(c.getProductName().equals(productNameComboBox.getValue())){
-                    temp=c; 
-                    break;                   
-                }           
-            }
-            temp.increaseQuantity(quantityComboBox.getValue());
-        
-        }
-        else{ 
-            createBill tempOBJ = new createBill(productNameComboBox.getValue(), Float.parseFloat(priceTextFile.getText()), quantityComboBox.getValue());
-            cartList.add(tempOBJ);
-        
-        }
+    private void buyerIdComboBoxOnSelect(ActionEvent event) {
     }
 
     @FXML
@@ -220,37 +161,70 @@ myStage.show();
                 break;                 
             case "Plantinum Creatine":
                 priceTextFile.setText("3499");
-                break;                 
-        } 
+                break;  
+        }
+        
         
     }
-    
-        @FXML
-    private void buyerIdComboBoxOnSelect(ActionEvent event) {
+
+    @FXML
+    private void totalBillButtonMouseOnClick(ActionEvent event) { 
+        showAllTextArea.clear();
+        for (CartItem c: cartList){
+            showAllTextArea.appendText(c.toString()+"\n");
+        }
+        showAllTextArea.appendText("\n"+"Total Payable  "+ getTotalAmount()+  "  BDT");
+        buyerIdComboBox.setDisable(true);
+        productNameComboBox.setDisable(true);
+        quantityComboBox.setDisable(true);
+        priceTextFile.setDisable(true);
+        totalBillButton.setDisable(true);
+        addProductButton.setDisable(true);        
+
+    }
+
+    @FXML
+    private void addButtonMouseOnClick(ActionEvent event) { 
+        showAllTextArea.clear();
+        if (productNameComboBox.getValue()==null || quantityComboBox.getValue()==  null){
+           showAllTextArea.clear();
+           showAllTextArea.setText("Please Select Product");
+        }
+        if(checkDuplicate(productNameComboBox.getValue())){ 
+            CartItem temp = null;
+            for (CartItem c: cartList){
+                if(c.getProductname().equals(productNameComboBox.getValue())){
+                    temp = c;
+                    break;
+                }
+            }
+            temp.increaseQuantity(quantityComboBox.getValue());
+        }
+        else{
+            CartItem tempOBJ = new CartItem(productNameComboBox.getValue(), Float.parseFloat(priceTextFile.getText()), quantityComboBox.getValue());
+            cartList.add(tempOBJ);
+        
+        }
+
     }
     
-    private boolean checkDuplicate (String productName){ 
+    
+    private boolean checkDuplicate(String productName){
         if (cartList.isEmpty()){
-        
-        }
-        for (createBill c : cartList){
-            if(c.getProductName().equals(productName)){
+            return false;        
+        }       
+        for (CartItem c: cartList){
+            if(c.getProductname().equals(productName)){
                 return true;
-            
-            }        
+            }
         }
-        return false; 
-    
+        return false;   
     }
-   
-    
     public float getTotalAmount(){
-        float totalAmount =0; 
-        for (createBill c: cartList){
+        float totalAmount =0;
+        for (CartItem c:cartList ){
             totalAmount += c.getTotalAmount();
-        
         }
-        return totalAmount; 
-    
+        return totalAmount;
     }
 }

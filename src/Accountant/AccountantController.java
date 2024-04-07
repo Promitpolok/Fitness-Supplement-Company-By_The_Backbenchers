@@ -32,7 +32,7 @@ public class AccountantController implements Initializable {
     }    
 
     @FXML
-    private void menuItemBillMouseOnClick(ActionEvent event) throws IOException { 
+    private void billButtonMouseOnClick(ActionEvent event) throws IOException { 
         Parent root = null;
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Bill.fxml"));
 root = (Parent) myLoader.load();
@@ -43,45 +43,19 @@ BillController x = myLoader.getController();
 
 Stage myStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 myStage.setScene(myScene);
-myStage.show();
+myStage.show();        
     }
 
     @FXML
-    private void menuItemExpenseMouseOnClick(ActionEvent event) throws IOException { 
-                Parent root = null;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Expenses.fxml"));
-root = (Parent) myLoader.load();
-Scene myScene = new Scene(root);
-
-ExpensesController x = myLoader.getController();
-//x.setValue(value);
-
-Stage myStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-myStage.setScene(myScene);
-myStage.show();
+    private void expenseButtonMouseOnClick(ActionEvent event) {
     }
 
     @FXML
-    private void menuItemTexMouseOnClick(ActionEvent event) throws IOException { 
-                Parent root = null;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Tax.fxml"));
-root = (Parent) myLoader.load();
-Scene myScene = new Scene(root);
-
-TaxController x = myLoader.getController();
-//x.setValue(value);
-
-Stage myStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-myStage.setScene(myScene);
-myStage.show();
+    private void taxButtonMouseOnClick(ActionEvent event) {
     }
 
     @FXML
-    private void menuAccountDeskMouseOnClick(ActionEvent event) {
-    }
-
-    @FXML
-    private void menuLogOutMouseOnClick(ActionEvent event) {
+    private void logOutButtonMouseOnClick(ActionEvent event) {
     }
     
 }
