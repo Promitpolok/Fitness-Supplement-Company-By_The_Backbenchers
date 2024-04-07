@@ -14,6 +14,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 /**
@@ -21,7 +23,12 @@ import javafx.stage.Stage;
  *
  * @author USER
  */
-public class ExpensesController implements Initializable {
+public class ViewBillController implements Initializable {
+
+    @FXML
+    private TextArea billTextArea;
+    @FXML
+    private ComboBox<?> buyerIdComboBox;
 
     /**
      * Initializes the controller class.
@@ -32,13 +39,13 @@ public class ExpensesController implements Initializable {
     }    
 
     @FXML
-    private void backButtonMouseOnClick(ActionEvent event) throws IOException { 
+    private void backButtonMouseOnClick(ActionEvent event) throws IOException {
                 Parent root = null;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Accountant.fxml"));
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Bill.fxml"));
 root = (Parent) myLoader.load();
 Scene myScene = new Scene(root);
 
-AccountantController x = myLoader.getController();
+BillController x = myLoader.getController();
 //x.setValue(value);
 
 Stage myStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -47,15 +54,26 @@ myStage.show();
     }
 
     @FXML
-    private void viewExpensesButtonMouseOnClick(ActionEvent event) {
+    private void okButtonMouseOnClick(ActionEvent event) throws IOException { 
+                Parent root = null;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Bill.fxml"));
+root = (Parent) myLoader.load();
+Scene myScene = new Scene(root);
+
+BillController x = myLoader.getController();
+//x.setValue(value);
+
+Stage myStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+myStage.setScene(myScene);
+myStage.show(); 
     }
 
     @FXML
-    private void createExpenseButtonMouseOnClick(ActionEvent event) {
+    private void editButtonMouseOnClick(ActionEvent event) {
     }
 
     @FXML
-    private void viewExpensesInBerButtonMouseOnClick(ActionEvent event) {
+    private void buyerIdMouseOnClick(ActionEvent event) {
     }
     
 }

@@ -47,7 +47,18 @@ myStage.show();
     }
 
     @FXML
-    private void expenseButtonMouseOnClick(ActionEvent event) {
+    private void expenseButtonMouseOnClick(ActionEvent event) throws IOException { 
+                Parent root = null;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Expenses.fxml"));
+root = (Parent) myLoader.load();
+Scene myScene = new Scene(root);
+
+ExpensesController x = myLoader.getController();
+//x.setValue(value);
+
+Stage myStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+myStage.setScene(myScene);
+myStage.show(); 
     }
 
     @FXML
