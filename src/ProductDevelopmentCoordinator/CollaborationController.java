@@ -4,6 +4,8 @@
  */
 package ProductDevelopmentCoordinator;
 
+import java.io.IOException;
+import java.net.URL;
 import Login.UserName;
 import java.io.IOException;
 import java.net.URL;
@@ -39,14 +41,17 @@ public class CollaborationController implements Initializable {
     private ComboBox<String> removeTeamMemberComboBox;
     @FXML
     private TextField assignTaskTextField;
+
     
     private ArrayList <UserName> UserList;
+
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        // TODO
         
         UserList= new ArrayList<>();
         

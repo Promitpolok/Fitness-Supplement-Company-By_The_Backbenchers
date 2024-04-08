@@ -6,7 +6,9 @@ package ProductDevelopmentCoordinator;
 
 import java.io.IOException;
 import java.net.URL;
+
 import java.util.ArrayList;
+
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,7 +17,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+
 import javafx.scene.control.ComboBox;
+
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
@@ -28,16 +32,21 @@ public class ProductController implements Initializable {
 
     @FXML
     private TextArea productInfoTextArea;
+
     @FXML
     private ComboBox<String> selectNewProductComboBox;
     
     private ArrayList <CartItem> cartList;
+
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
+        // TODO
+
         
         cartList = new ArrayList<>();
         selectNewProductComboBox.getItems().addAll(

@@ -6,15 +6,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="637.0" prefWidth="629.0" style="-fx-background-color: #0598ff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.RegisterUserSceneController">
-<AnchorPane id="AnchorPane" prefHeight="317.0" prefWidth="629.0" style="-fx-background-color: #0598ff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.RegisterUserSceneController">
-
    <children>
       <Label layoutX="41.0" layoutY="31.0" text="Select User">
          <font>
@@ -22,7 +18,6 @@
          </font>
       </Label>
       <ComboBox layoutX="210.0" layoutY="26.0" prefWidth="150.0" promptText="Select a User" />
-      <ComboBox fx:id="selectUserTypeComboBox" layoutX="211.0" layoutY="26.0" prefWidth="150.0" promptText="Select a User" />
       <Label layoutX="41.0" layoutY="86.0" text="User ID">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -38,7 +33,6 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-
       <Label layoutX="41.0" layoutY="243.0" text="Gender">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -88,10 +82,6 @@
       <DatePicker fx:id="dobDatePicker" layoutX="210.0" layoutY="443.0" />
       <DatePicker fx:id="dojDatePicker" layoutX="210.0" layoutY="494.0" />
       <Button layoutX="251.0" layoutY="572.0" mnemonicParsing="false" onAction="#registerButtonOnMouseClick" prefHeight="31.0" prefWidth="137.0" text="Register">
-      <TextField fx:id="newUserIdTextField" layoutX="210.0" layoutY="81.0" />
-      <TextField fx:id="nameTextField" layoutX="210.0" layoutY="127.0" promptText="Enter Your Name" />
-      <PasswordField fx:id="passwordField" layoutX="210.0" layoutY="185.0" promptText="Enter Password" />
-      <Button layoutX="235.0" layoutY="246.0" mnemonicParsing="false" onAction="#registerButtonOnMouseClick" prefHeight="31.0" prefWidth="137.0" text="Register">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

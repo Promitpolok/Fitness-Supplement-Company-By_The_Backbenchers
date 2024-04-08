@@ -31,6 +31,23 @@ import javax.lang.model.util.Elements;
 public class Login_InterfaceController implements Initializable {
     
     private Label label;
+
+    @FXML
+    private ComboBox<String> userNameComboBox;
+    @FXML
+    private TextField userIdTextField;
+    @FXML
+    private PasswordField enterPasswordField;
+    @FXML
+    private Label resetPassLabel;
+    @FXML
+    private Label regLabel;
+    
+    Alert anAlert = new Alert(Alert.AlertType.ERROR);
+    
+    
+    private ArrayList <UserName> UserList;
+
     @FXML
     private ComboBox<String> userNameComboBox;
     @FXML
@@ -46,6 +63,7 @@ public class Login_InterfaceController implements Initializable {
     private ArrayList <UserName> UserList;
     @FXML
     private Rectangle userTypeComboBox;
+
     
     
     
@@ -131,6 +149,7 @@ myStage.show();
         }
     }
 
+
     @FXML
     private void registerButtonOnMouseClick(ActionEvent event) throws IOException {
         
@@ -146,4 +165,5 @@ Stage myStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 myStage.setScene(myScene);
 myStage.show(); 
     }
+
 }    
