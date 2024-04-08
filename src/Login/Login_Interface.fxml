@@ -53,5 +53,10 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
+      <Button layoutX="549.0" layoutY="538.0" mnemonicParsing="false" onAction="#registerButtonOnMouseClick" style="-fx-background-color: transparent;" text="Register">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

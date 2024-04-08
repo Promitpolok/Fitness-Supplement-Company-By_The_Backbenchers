@@ -36,6 +36,6 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <ComboBox layoutX="37.0" layoutY="136.0" prefHeight="31.0" prefWidth="189.0" promptText="Select New Product" />
+      <ComboBox fx:id="selectNewProductComboBox" layoutX="37.0" layoutY="136.0" prefHeight="31.0" prefWidth="189.0" promptText="Select New Product" />
    </children>
 </AnchorPane>

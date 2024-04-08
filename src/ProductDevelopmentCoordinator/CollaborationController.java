@@ -6,6 +6,10 @@ package ProductDevelopmentCoordinator;
 
 import java.io.IOException;
 import java.net.URL;
+import Login.UserName;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -38,12 +42,32 @@ public class CollaborationController implements Initializable {
     @FXML
     private TextField assignTaskTextField;
 
+    
+    private ArrayList <UserName> UserList;
+
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+        UserList= new ArrayList<>();
+        
+        addTeamMemberComboBox.getItems().addAll(
+                "Supply Chain Coordinator", 
+                "Product Development Coordinator", 
+                "Accountant",
+                "Digital Marketing Executive",
+                "CEO",
+                "Warehouse Associate", 
+                "Buyer", 
+                "Customer Support Specialist"
+        
+        
+        );
+        
     }    
 
     @FXML

@@ -85,7 +85,7 @@ myStage.show();
     private void SignOutButtonOnMouseClick(ActionEvent event) throws IOException {
         
         Parent root = null;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Login_Interface.fxml"));
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/Login/Login_Interface.fxml"));
 root = (Parent) myLoader.load();
 Scene myScene = new Scene(root);
 

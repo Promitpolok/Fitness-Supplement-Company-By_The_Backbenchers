@@ -14,6 +14,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+
+import javafx.scene.control.ComboBox;
+
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
@@ -47,6 +50,7 @@ public class RegisterUserSceneController implements Initializable {
     private DatePicker dobDatePicker;
     @FXML
     private DatePicker dojDatePicker;
+    private ComboBox<String> selectUserTypeComboBox;
 
     /**
      * Initializes the controller class.
