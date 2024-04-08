@@ -1,8 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
-package ProductDevelopmentCoordinator;
+package SupplyChainCoordinator;
 
 import Login.Login_InterfaceController;
 import java.io.IOException;
@@ -22,7 +18,7 @@ import javafx.stage.Stage;
  *
  * @author Promit
  */
-public class ProductDevelopmentCoordinatorDashboardController implements Initializable {
+public class DashboardSupplyChainCoordinatorController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -33,7 +29,7 @@ public class ProductDevelopmentCoordinatorDashboardController implements Initial
     }    
 
     @FXML
-    private void OverviewButtonOnMouseClick(ActionEvent event) throws IOException {
+    private void OverViewButtonOnMouseClick(ActionEvent event) throws IOException {
         
         Parent root = null;
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Overview.fxml"));
@@ -48,6 +44,7 @@ myStage.setScene(myScene);
 myStage.show();    
     
     }
+    
 
     @FXML
     private void ProductQuantityButtonOnMouseClick(ActionEvent event) throws IOException {
@@ -66,14 +63,30 @@ myStage.show();
     }
 
     @FXML
-    private void ProductButtonOnMouseClick(ActionEvent event) throws IOException {
+    private void ProductPriceButtonOnMouseClick(ActionEvent event) throws IOException {
         
         Parent root = null;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Product.fxml"));
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Product Price.fxml"));
 root = (Parent) myLoader.load();
 Scene myScene = new Scene(root);
 
-ProductController x = myLoader.getController();
+ProductPriceController x = myLoader.getController();
+//x.setValue(value);
+
+Stage myStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+myStage.setScene(myScene);
+myStage.show(); 
+    }
+
+    @FXML
+    private void StockLevelButtonOnMouseClick(ActionEvent event) throws IOException {
+        
+        Parent root = null;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Stock Levels.fxml"));
+root = (Parent) myLoader.load();
+Scene myScene = new Scene(root);
+
+StockLevelsController x = myLoader.getController();
 //x.setValue(value);
 
 Stage myStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -98,14 +111,14 @@ myStage.show();
     }
 
     @FXML
-    private void ProductTasteCheckingButtonOnMouseClick(ActionEvent event) throws IOException {
+    private void InventoryManagementButtonOnMouseClick(ActionEvent event) throws IOException {
         
         Parent root = null;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Product Taste Checking.fxml"));
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Inventory Management.fxml"));
 root = (Parent) myLoader.load();
 Scene myScene = new Scene(root);
 
-ProductTasteCheckingController x = myLoader.getController();
+InventoryManagementController x = myLoader.getController();
 //x.setValue(value);
 
 Stage myStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -114,14 +127,14 @@ myStage.show();
     }
 
     @FXML
-    private void CollaborationButtonOnMouseClick(ActionEvent event) throws IOException {
+    private void ViewCostButtonOnMouseClick(ActionEvent event) throws IOException {
         
         Parent root = null;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Collaboration.fxml"));
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("View Cost.fxml"));
 root = (Parent) myLoader.load();
 Scene myScene = new Scene(root);
 
-CollaborationController x = myLoader.getController();
+ViewCostController x = myLoader.getController();
 //x.setValue(value);
 
 Stage myStage = (Stage) ((Node) event.getSource()).getScene().getWindow();

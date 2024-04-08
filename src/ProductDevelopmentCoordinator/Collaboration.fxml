@@ -6,28 +6,27 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0598ff;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0598ff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ProductDevelopmentCoordinator.CollaborationController">
    <children>
-      <Button layoutX="14.0" layoutY="22.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="83.0" text="Back">
+      <Button layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#BackButtonOnMouseClick" prefHeight="31.0" prefWidth="83.0" text="Back">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <ComboBox layoutX="14.0" layoutY="73.0" prefHeight="31.0" prefWidth="194.0" promptText="Select Team Member" />
-      <TextField layoutX="230.0" layoutY="73.0" promptText="Enter Your Project Title">
+      <ComboBox fx:id="selectTeamMemberComboBox" layoutX="14.0" layoutY="73.0" prefHeight="31.0" prefWidth="194.0" promptText="Select Team Member" />
+      <TextField fx:id="projectTitleTextField" layoutX="230.0" layoutY="73.0" promptText="Enter Your Project Title">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </TextField>
-      <TextField layoutX="14.0" layoutY="131.0" promptText="Enter Project Description">
+      <TextField fx:id="projectDescriptionTextField" layoutX="14.0" layoutY="131.0" promptText="Enter Project Description">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </TextField>
-      <ComboBox layoutX="14.0" layoutY="185.0" prefHeight="31.0" prefWidth="185.0" promptText="Add Team Member" />
-      <ComboBox layoutX="14.0" layoutY="240.0" prefHeight="31.0" prefWidth="213.0" promptText="Remove Team Member" />
-      <TextField layoutX="230.0" layoutY="131.0" promptText="Assign Task">
+      <ComboBox fx:id="addTeamMemberComboBox" layoutX="14.0" layoutY="185.0" prefHeight="31.0" prefWidth="185.0" promptText="Add Team Member" />
+      <ComboBox fx:id="removeTeamMemberComboBox" layoutX="14.0" layoutY="240.0" prefHeight="31.0" prefWidth="213.0" promptText="Remove Team Member" />
+      <TextField fx:id="assignTaskTextField" layoutX="230.0" layoutY="131.0" promptText="Assign Task">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
