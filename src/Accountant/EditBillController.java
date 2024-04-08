@@ -14,6 +14,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 /**
@@ -21,7 +23,12 @@ import javafx.stage.Stage;
  *
  * @author USER
  */
-public class BillController implements Initializable {
+public class EditBillController implements Initializable {
+
+    @FXML
+    private ComboBox<?> buyerIdComboBox;
+    @FXML
+    private TextArea showBillTextArea;
 
     /**
      * Initializes the controller class.
@@ -32,28 +39,13 @@ public class BillController implements Initializable {
     }    
 
     @FXML
-    private void backMouseOnClick(ActionEvent event) throws IOException { 
-        Parent root = null;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Accountant.fxml"));
-root = (Parent) myLoader.load();
-Scene myScene = new Scene(root);
-
-AccountantController x = myLoader.getController();
-//x.setValue(value);
-
-Stage myStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-myStage.setScene(myScene);
-myStage.show(); 
-    }
-
-    @FXML
-    private void editBillMouseOnClick(ActionEvent event) throws IOException { 
+    private void backButtonMouseOnClick(ActionEvent event) throws IOException { 
                 Parent root = null;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("EditBill.fxml"));
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Bill.fxml"));
 root = (Parent) myLoader.load();
 Scene myScene = new Scene(root);
 
-EditBillController x = myLoader.getController();
+BillController x = myLoader.getController();
 //x.setValue(value);
 
 Stage myStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -62,23 +54,12 @@ myStage.show();
     }
 
     @FXML
-    private void viewBillMouseOnClick(ActionEvent event) throws IOException { 
+    private void deleteBillButtonMouseOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void createNewBillMouseOnClick(ActionEvent event) throws IOException { 
                 Parent root = null;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("ViewBill.fxml"));
-root = (Parent) myLoader.load();
-Scene myScene = new Scene(root);
-
-ViewBillController x = myLoader.getController();
-//x.setValue(value);
-
-Stage myStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-myStage.setScene(myScene);
-myStage.show(); 
-    }
-
-    @FXML
-    private void createBillMouseOnClick(ActionEvent event) throws IOException { 
-        Parent root = null;
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("CreateBill.fxml"));
 root = (Parent) myLoader.load();
 Scene myScene = new Scene(root);
@@ -88,9 +69,7 @@ CreateBillController x = myLoader.getController();
 
 Stage myStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 myStage.setScene(myScene);
-myStage.show();  
-        
+myStage.show(); 
     }
-
     
 }
